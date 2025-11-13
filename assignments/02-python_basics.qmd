@@ -1,3 +1,8 @@
+---
+execute:
+  python: "C:/Users/haykm/miniforge3/envs/env8222a/python.exe"
+---
+
 # Assignment 2: Python Basics and GitHub Pages Website
 
 For this assignment, see the QMD or IPYNB files in our course repository named 02-python_basics.qmd or 02-python_basics.ipynb.
@@ -12,6 +17,12 @@ a). **Indentation and Pythonic Code**:
 
 ```{python}
 #1 a) Answer
+
+def print_numbers():
+   for i in range(1, 11):
+      print(i)
+
+print_numbers()
 ```
 
 b.) **Rules of Functions and Comments**:
@@ -19,6 +30,23 @@ b.) **Rules of Functions and Comments**:
 
 ```{python}
 #1 b) Answer:
+
+def calculate_area(length, width):
+   """
+   Calculates the area of a rectangle in cm.
+
+    Parameters:
+        length (float): The length of the rectangle in cm.
+        width (float): The width of the rectangle in cm.
+
+    Returns:
+        float: The calculated area of the rectangle in squared cm.
+   """
+
+   return(length*width)
+
+#Prints the area of a 2x3 rectangle
+print(calculate_area(2,3))
 ```
 
 c.) **Basic Data Types**:
@@ -26,6 +54,9 @@ c.) **Basic Data Types**:
 
 ```{python}
 #1 c) Answer:
+
+is_active = True
+print(type(is_active))
 ```
 
 d.) **Working with Lists**:
@@ -33,6 +64,11 @@ d.) **Working with Lists**:
 
 ```{python}
 #1 d) Answer:
+
+fruits = ["Apple", "Orange", "Banana"]
+print(fruits)
+fruits.append("Mango")
+print(fruits)
 ```
 
 ## Question 2:
@@ -41,6 +77,8 @@ a.) **Naming Conventions**:
 
 ```{python}
 #2 a) Answer: 
+
+number_of_days_in_week = 7
 ```
 
 b.) **Control Flows - Conditionals**:
@@ -48,6 +86,14 @@ b.) **Control Flows - Conditionals**:
 
 ```{python}
 #2 b) Answer:
+number = 5
+
+if number > 0:
+   print("Number is positive.")
+elif number == 0:
+   print("Number is zero.")
+else:
+   print("Number is negative.")
 ```
 
 c.) **Control Flows - Loops**:
@@ -55,13 +101,26 @@ c.) **Control Flows - Loops**:
 
 ```{python}
 #2 c) Answer:
+sum = 0
+for i in range(1, 101):
+   sum += i
+
+print(f"The sum of numbers from 1 to 100 is {sum}.")
 ```
 
 d.) **Control Flows - Loop Control Statements**:
    - Modify the loop from the previous sub-question to stop the loop if the sum becomes greater than 1000 using a `break` statement.
 
 ```{python}
-#2 c) Answer: 
+#2 c) Answer:
+sum = 0
+for i in range(1, 101):
+   if sum > 1000:
+      break
+   else:
+      sum += i
+
+print(sum)
 ```
 
 e.) **Functions - Arguments and Return Values**:
@@ -69,6 +128,12 @@ e.) **Functions - Arguments and Return Values**:
 
 ```{python}
 #2 e) Answer:
+
+def get_full_name(first_name, last_name):
+   full_name = first_name + " " + last_name
+   return full_name
+
+print(get_full_name("Hayk", "Mardanyan"))
 ```
 
 ## Question 3
@@ -84,6 +149,15 @@ def function_name(variable_name):
 
 ```{python}
 #3A Answer
+
+def sum_squares(x):
+   sum = 0
+   for i in range(1, x+1):
+      sum += i**2
+   
+   return sum
+
+print(sum_squares(20))
 ```
 
 The python library named "os" is a built-in library for dealing with any file on your operating system.
@@ -95,20 +169,40 @@ write "import os" to import the library into your code before you can use it:
 
 ```{python}
 #3B Answer
+
+import os
+
+root_dir = "C:/Users/haykm/Files/apec_8222"
+files = os.listdir(root_dir)
+print(files)
 ```
 
 **Part C:** Using a FOR loop, iterate over the list from above. Using the function len(), count how many letters there are in the filenames. HINT just like in real life, you may need to google the len() function and see how it work on e.g. strings.
 
 ```{python}
 #3C Answer
+
+for file in files:
+   print(len(file))
 ```
 
-**Part D:** Write a Python program which iterates over the integers from 1 to 50. For multiples of three print "Fizz" instead of the number and for the multiples of five print "Buzz". For numbers which are multiples of both three and five print "FizzBuzz". Hint: look up how to use the modulo operator (which is written as % in python) which would let you test when the remainder of a devision is exactly 0.
+**Part D:** Write a Python program which iterates over the integers from 1 to 50. For multiples of three print "Fizz" instead of the number and for the multiples of five print "Buzz". For numbers which are multiples of both three and five print "FizzBuzz". Hint: look up how to use the modulo operator (which is written as % in python) which would let you test when the remainder of a division is exactly 0.
 
-Side-note, this is a hilariously over-used question that most software engineers get askedon their first interview for a job.
+Side-note, this is a hilariously over-used question that most software engineers get asked on their first interview for a job.
 
 ```{python}
 # 3D Answer
+
+for i in range(1, 51):
+   if i%3 == 0 and i%5 != 0:
+      print("Fizz")
+   elif i%3 != 0 and i%5 == 0:
+      print("Buzz")
+   elif i%3 == 0 and i%5 == 0:
+      print("FizzBuzz")
+   else:
+      print(i)
+
 ```
 
 ## Question 4
@@ -163,5 +257,10 @@ To actually host the site, push the rendered HTML files to a GitHub repository n
 
 Ideally, this should be a public site. However if you would like to remain anonymous, you can just create a private repository and invite me as a collaborator on the repository.
 
+### The link to my course website is presented below:
 
+https://haykmard007.github.io/haykmardanyan/
 
+### The link to the repository:
+
+https://github.com/haykmard007/haykmardanyan
