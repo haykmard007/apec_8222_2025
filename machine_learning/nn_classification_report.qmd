@@ -1,0 +1,60 @@
+---
+title: "Simple Neural Network Classification Report"
+author: "Automated via Python Script"
+date: "2025-11-25"
+format:
+  html:
+    toc: true
+    code-fold: true
+    self-contained: true 
+jupyter: python3
+---
+
+## 1. Introduction 
+(Same as before)
+
+## 2. Dataset
+(Same as before, ensure X_sample_for_fwd_pass and y_sample_for_fwd_pass_onehot are used)
+
+## 3. Neural Network Architecture
+(Same as before, refers to arch_fn)
+
+## 4. Training Process
+
+### 4.1. Forward Propagation
+During the forward pass, input data is processed layer by layer to produce an output.
+1.  **Input to Hidden Layer:** `Z_h = X @ W_ih + b_h`, followed by `A_h = sigmoid(Z_h)`.
+2.  **Hidden to Output Layer:** `Z_o = A_h @ W_ho + b_o`, followed by `A_o = sigmoid(Z_o)`.
+
+The diagram below provides a more detailed breakdown of the calculations involved in a forward pass for a single sample, showing the matrices and vectors at each stage:
+
+![Detailed Illustration of a Forward Pass for a Single Sample](nn_classification_visualizations/forward_pass_detailed.png)
+*Figure 2: Detailed Forward Propagation. This figure illustrates: 1. The input sample vector (X). 2. The calculations for the hidden layer, including the net input sum (Z_h) and the activations (A_h). The weights W_ih and bias b_h used in this step are shown conceptually. 3. The calculations for the output layer, including its net input sum (Z_o) and final activations (A_o). The weights W_ho and bias b_o are also shown conceptually. 4. The final class prediction derived from A_o.*
+
+### 4.2. Loss Function
+(Same as before)
+
+### 4.3. Backpropagation
+The backpropagation algorithm is key to training the network. It involves calculating the error at the output and then propagating this error backward to adjust the weights and biases throughout the network. The core idea is to determine how much each weight and bias contributed to the overall error and then update them in a direction that reduces this error. This is achieved using the chain rule of calculus to compute gradients.
+
+The conceptual flow of backpropagation is illustrated below:
+
+![Conceptual Flow of the Backpropagation Algorithm](nn_classification_visualizations/backpropagation_concept.png)
+*Figure 3: Backpropagation Concept. This diagram shows: 1. Calculation of the output error (E_o). 2. Calculation of the output delta (δ_o), which scales the error by the derivative of the output activation. 3. Propagation of the error to the hidden layer (E_h) using output deltas and weights W_ho. 4. Calculation of the hidden delta (δ_h). These deltas are then used to compute the gradients (∇W, ∇b) for updating the respective weights and biases.*
+
+The learning progress, driven by repeated forward and backward passes, is shown by the training loss curve:
+
+![Training Loss Curve Over Epochs](nn_classification_visualizations/loss_curve.png)
+*Figure 4: Training Loss Curve. (Same explanation as before for loss_curve_fn)*
+
+## 5. Results
+(Same as before, nn_params should include epochs and learning_rate for this text)
+
+### 5.1. Classification Visualization and Decision Boundaries
+(Same as before, refers to decision_bnd_fn)
+
+### 5.2. Example Predictions on Training Data
+(Same as before)
+
+## 6. Conclusion
+(Same as before)
